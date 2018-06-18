@@ -1,0 +1,62 @@
+{% extends 'header.html' %}
+{% block body %}
+    <section class="o-row">
+            <div class="o-container">
+                <div class="o-layout o-layout--justify-center">
+                    <form id="timeform" method="post">
+                        <section class="c-time">
+                            <div class="c-time__item" id="Monday">
+                                <p class="c-label">Monday</p>
+                                <div>
+                                    <input class="c-time__input" name="Monday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Tuesday">
+                                <p class="c-label">Tuesday</p>
+                                <div>
+                                    <input class="c-time__input" name="Tuesday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Wednesday">
+                                <p class="c-label">Wednesday</p>
+                                <div>
+                                    <input class="c-time__input" name="Wednesday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Thursday">
+                                <p class="c-label">Thursday</p>
+                                <div>
+                                    <input class="c-time__input" name="Thursday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Friday">
+                                <p class="c-label">Friday</p>
+                                <div>
+                                    <input class="c-time__input" name="Friday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Saturday">
+                                <p class="c-label">Saturday</p>
+                                <div>
+                                    <input class="c-time__input" name="Saturday" value="07:00">
+                                </div>
+                            </div>
+                            <div class="c-time__item" id="Sunday">
+                                <p class="c-label">Sunday</p>
+                                <div>
+                                    <input class="c-time__input" name="Sunday" value="07:00">
+                                </div>
+                            </div>
+                        </section>
+                        <section id="buttons">
+                            <div class="o-layout o-layout--justify-center">
+                                <button class="c-form-button" type="button" id="timetable" name="add-timetable">Add timetable</button>
+                                <button class="c-form-submit" type="submit" name="submit">Submit</button>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+            </div>
+        </section>
+    <script src="../static/js/feeding.js"></script>
+{% endblock %}

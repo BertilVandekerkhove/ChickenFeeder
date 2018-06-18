@@ -1,0 +1,998 @@
+/*------------------------------------*\
+  #FONTS
+\*------------------------------------*/
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: 600;
+    src: url("../fonts/OpenSans-Semibold.ttf") format('truetype');
+}
+
+/*------------------------------------*\
+  #GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+    font-family: "Open Sans", sans-serif;
+    color: #1D2F3E;
+    background-color: #F7F4F2;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.has-mobile-nav {
+    overflow: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+::-moz-selection {
+    background: #ED0F27;
+    color: #FFFEFE;
+    text-shadow: none;
+}
+
+::selection {
+    background: #ED0F27;
+    color: #FFFEFE;
+    text-shadow: none;
+}
+
+/*------------------------------------*\
+  #Elements
+\*------------------------------------*/
+
+input {
+    font-family: "Open Sans";
+    text-align: center;
+    width: 50%
+}
+
+form {
+    padding-top: 48px;
+}
+
+table, tr {
+    margin-top: 48px;
+    border: 2px solid #ED0F27;
+    text-align: center;
+    align-items: center;
+}
+
+td, th {
+    padding: 10px;
+    border: 2px solid #ED0F27;
+    align-items: center;
+}
+
+a {
+    color: #1D2F3E;
+}
+
+a:visited, a:active {
+    color: #1D2F3E;
+}
+
+a:hover, a:focus {
+    color: #ED0F27;
+}
+
+/*------------------------------------*\
+  #OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+    overflow: auto;
+    position: relative;
+    padding: 16px 16px 16px;
+}
+
+/* color modifiers */
+
+.o-row--color {
+    background: #ED0F27;
+    color: #FFFEFE;
+}
+
+/* size modifiers */
+
+.o-row--lg {
+    padding: 48px 24px 24px;
+}
+
+@media (min-width: 768px) {
+    .o-row {
+        padding-left: 48px;
+        padding-right: 48px;
+    }
+    .o-row--md {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    .o-row--lg {
+        padding-top: 72px;
+    }
+}
+
+/* padding clear modifiers */
+
+.o-row--clear-top {
+    padding-top: 0;
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+    /* 56.4 * 20px = 1128px */
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    position: relative;
+}
+
+.o-section+.o-section {
+    padding-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg+.o-section--lg, .o-section--xl+.o-section--xl {
+        padding-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl+.o-section--xl {
+        padding-top: 72px;
+    }
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.o-layout__item {
+    width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+    margin: 0 -12px;
+}
+
+.o-layout--gutter>.o-layout__item {
+    padding: 0 12px;
+}
+
+.o-layout--gutter-sm {
+    margin: 0 -6px;
+}
+
+.o-layout--gutter-sm>.o-layout__item {
+    padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+    margin: 0 -24px;
+}
+
+.o-layout--gutter-lg>.o-layout__item {
+    padding: 0 24px;
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+    justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+    justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+    justify-content: center;
+}
+
+.o-layout--justify-space-around {
+    justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+    justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+    align-items: flex-start;
+}
+
+.o-layout--align-end {
+    align-items: flex-end;
+}
+
+.o-layout--align-center {
+    align-items: center;
+}
+
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+    align-content: start;
+}
+
+.o-layout--align-content-end {
+    align-content: end;
+}
+
+.o-layout--align-content-center {
+    align-content: center;
+}
+
+.o-layout--align-content-space-around {
+    align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+    align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: page
+    ---
+    Page component for mobile nav transition
+*/
+
+.c-page {
+    position: relative;
+    transition: transform .5s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    /* easeOutCirc */
+}
+
+.has-mobile-nav .c-page {
+    /*slide left*/
+    transform: translateX(25%);
+}
+
+@media (min-width: 992px) {
+    /* Reset the transform on larger viewports */
+    .c-page {
+        transform: none !important;
+    }
+}
+
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+    font-size: 16px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.c-logo__symbol {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .c-logo {
+        height: 24px;
+    }
+}
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header__nav {
+        display: block;
+    }
+    .c-header__nav--main {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 12px;
+    }
+    .c-header__mobile-nav-trigger {
+        display: none;
+    }
+}
+
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.c-nav-trigger__svg {
+    fill: #FFFEFE;
+    height: 100%;
+}
+
+.c-nav {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.c-nav__item {
+    padding-top: 8px;
+}
+
+.c-nav__mobile {
+    font-size: 16px;
+    line-height: 16px;
+    padding-left: 16px;
+}
+
+.c-nav--meta {
+    font-size: 16px;
+}
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+}
+
+.c-nav__link, .c-nav__link:visited, .c-nav__link:active {
+    color: #FFFEFE;
+}
+
+.c-nav__link--meta, .c-nav__link--meta:visited, .c-nav__link--meta:active {
+    color: #1D2F3E;
+}
+
+.c-nav__link:hover, .c-nav__link:focus {
+    color: #1D2F3E;
+}
+
+@media (min-width: 992px) {
+    .c-nav__list {
+        display: flex;
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+    .c-nav__link {
+        padding: 0 16px 16px;
+    }
+}
+
+/*
+    Component: mobile nav
+    ---
+    Dedicated mobile nav component
+*/
+
+.c-mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.has-mobile-nav .c-mobile-nav {
+    pointer-events: auto;
+}
+
+.c-page {
+    transition: .5s;
+}
+
+.c-mobile-nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ED0F27;
+    color: #FFFEFE;
+    padding: 8px 16px 16px;
+}
+
+.c-mobile-nav__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #202024;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    /* easeOutCirc */
+}
+
+.has-mobile-nav .c-mobile-nav__bg {
+    opacity: .5;
+}
+
+.c-mobile-nav__body {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #F7F4F2;
+    transform: translateX(-100%);
+    transition: transform 1s cubic-bezier(0.075, 0.820, 0.165, 1.000);
+    /* easeOutCirc */
+}
+
+.has-mobile-nav .c-mobile-nav__body {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (min-width: 992px) {
+    /* Hide the mobile nav on larger viewports even whent it's open on smaller screens */
+    .c-mobile-nav {
+        display: none !important;
+    }
+}
+
+/*
+    Component: Selection
+    ---
+    Day selection
+*/
+
+.c-custom-select {
+    box-sizing: border-box;
+    margin-top: 32px;
+    padding-left: 8px;
+}
+
+label.c-custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.c-custom-select select {
+    display: inline-block;
+    border: 2px solid #1D2F3E;
+    padding: 4px 3px 3px 5px;
+    margin: 0;
+    font: "Open Sans";
+    outline: none;
+    /* remove focus ring from Webkit */
+    background: #FFFEFE;
+    -webkit-appearance: none;
+    /* remove the strong OSX influence from Webkit */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    .c-custom-select select {
+        font-size: 24px;
+    }
+}
+
+/* for Webkit's CSS-only solution */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .c-custom-select select {
+        padding-right: 40px;
+    }
+}
+
+/* Select arrow styling */
+
+.c-custom-select:after {
+    content: "\25bc";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 24px;
+    padding: 0 8px;
+    background: #1D2F3E;
+    color: #FFFEFE;
+    pointer-events: none;
+    -webkit-border-radius: 0 5px 5px 0;
+    -moz-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+@media (min-width: 768px) {
+    .c-custom-select:after {
+        line-height: 40px;
+    }
+}
+
+.no-pointer-events .c-custom-select:after {
+    content: none;
+}
+
+/*
+    Component: graph canvas
+*/
+
+.c-canvas {
+    margin-top: 24px;
+    background-color: #FFFEFE;
+    padding: 16px;
+}
+
+/*
+    Component: graph styling
+*/
+
+.c-graph {
+    margin-top: 24px;
+    background-color: #FFFEFE;
+    max-width: 100%;
+}
+
+/*
+    Component: info text
+    ---
+    The info for the system
+*/
+
+.c-info {
+    font-size: 12px;
+    max-width: 100%;
+    padding-top: 24px;
+}
+
+.c-info--item {
+    padding-right: 24px;
+}
+
+.c-info--amount {
+    background-color: #FFFEFE;
+    text-align: center;
+    border: 2px solid #ED0F27;
+    border-radius: 5px;
+    padding: 0 16px 0;
+}
+
+@media (min-width: 480px) {
+    .c-info {
+        font-size: 16px;
+    }
+}
+
+.c-label{
+    margin-bottom: 12px;
+   }
+
+.c-time {
+    display: flex;
+}
+
+@media (max-width: 480px) {
+    .c-time {
+        flex-flow: column wrap;
+        flex-direction: column;
+    }
+}
+
+.c-time__item {
+    text-align: center;
+}
+
+.c-time__input {
+    text-align: center;
+    width: 50%;
+    border: 2px solid #1D2F3E;
+    border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 480px) {
+    .c-time__input{
+        margin-bottom: 4px;
+    }
+}
+
+.c-form-button {
+    background-color: #FFFEFE;
+    border-radius: 5px;
+    border: 2px solid #ED0F27;
+    align-items: center;
+    padding: 8px;
+    margin: 16px;
+}
+
+.c-form-submit {
+    background-color: #FFFEFE;
+    border-radius: 5px;
+    border: 2px solid #ED0F27;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 16px;
+}
+
+.c-info{
+    padding-top: 48px;
+}
+
+/*------------------------------------*\
+  #UTILITIES
+\*------------------------------------*/
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
+.u-mb-clear {
+    margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+    margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+    margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+    margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+    margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+    margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+    max-width: 18em !important;
+}
+
+.u-max-width-sm {
+    max-width: 36em !important;
+}
+
+.u-max-width-md {
+    max-width: 42em !important;
+}
+
+.u-max-width-lg {
+    max-width: 60em !important;
+}
+
+.u-max-width-xl {
+    max-width: 75em !important;
+}
+
+.u-max-width-none {
+    max-width: none !important;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+    width: auto !important;
+}
+
+.u-1-of-2 {
+    width: 50% !important;
+}
+
+.u-1-of-3 {
+    width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+    width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+    width: 25% !important;
+}
+
+.u-3-of-4 {
+    width: 75% !important;
+}
+
+.u-1-of-5 {
+    width: 20% !important;
+}
+
+.u-2-of-5 {
+    width: 40% !important;
+}
+
+.u-3-of-5 {
+    width: 60% !important;
+}
+
+.u-4-of-5 {
+    width: 80% !important;
+}
+
+.u-1-of-6 {
+    width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+    width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+    .u-1-of-2-bp1 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp1 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp1 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp1 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp1 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp1 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp1 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp1 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp1 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp1 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp1 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .u-1-of-2-bp2 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp2 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp2 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp2 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp2 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp2 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp2 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp2 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp2 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp2 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp2 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .u-1-of-2-bp3 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp3 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp3 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp3 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp3 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp3 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp3 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp3 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp3 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp3 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp3 {
+        width: 83.3333333333% !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .u-1-of-2-bp4 {
+        width: 50% !important;
+    }
+    .u-1-of-3-bp4 {
+        width: 33.3333333333% !important;
+    }
+    .u-2-of-3-bp4 {
+        width: 66.6666666667% !important;
+    }
+    .u-1-of-4-bp4 {
+        width: 25% !important;
+    }
+    .u-3-of-4-bp4 {
+        width: 75% !important;
+    }
+    .u-1-of-5-bp4 {
+        width: 20% !important;
+    }
+    .u-2-of-5-bp4 {
+        width: 40% !important;
+    }
+    .u-3-of-5-bp4 {
+        width: 60% !important;
+    }
+    .u-4-of-5-bp4 {
+        width: 80% !important;
+    }
+    .u-1-of-6-bp4 {
+        width: 16.6666666667% !important;
+    }
+    .u-5-of-6-bp4 {
+        width: 83.3333333333% !important;
+    }
+}
